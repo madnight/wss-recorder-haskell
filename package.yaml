@@ -34,6 +34,7 @@ dependencies:
 - vector
 - attoparsec
 - scientific
+- network-uri
 
 library:
   source-dirs: src

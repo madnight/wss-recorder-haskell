@@ -15,9 +15,17 @@ import Control.Monad (forever, void)
 import Network.WebSockets (ClientApp, receiveData)
 import Database.MongoDB
 import Control.Monad.Trans (liftIO)
+import System.Environment
+import Network.URI
+import Data.Maybe (fromJust)
 
 main :: IO ()
-main = runSecureClient "www.bitmex.com" 443 "/realtime?subscribe=orderBookL2:XBTUSD,quote:XBTUSD,trade:XBTUSD" ws
+main = do
+   wssUrl <- getEnv "WSS_URL"
+   let uri = fromJust $ parseAbsoluteURI wssUrl
+   let path = uriPath uri ++ uriQuery uri
+   let domain = uriRegName $ fromJust $ uriAuthority uri
+   runSecureClient domain 443 path ws
 
 ws :: ClientApp ()
 ws connection = do

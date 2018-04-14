@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d1c3da453b1c6ec1bd2434cb95e24e85a3ffb24721a502a8e739c3900ef8ce09
+-- hash: 7f6220822f5af7dac1655a9a00d853f334406baca3ec8779c86d5caecf7b4e04
 
 name:           wss-recorder
 version:        0.1.0.0
@@ -40,6 +40,7 @@ library
     , bytestring
     , mongoDB
     , mtl
+    , network-uri
     , scientific
     , string-conversions
     , text
@@ -64,6 +65,7 @@ executable wss-recorder-exe
     , bytestring
     , mongoDB
     , mtl
+    , network-uri
     , scientific
     , string-conversions
     , text
@@ -90,6 +92,7 @@ test-suite wss-recorder-test
     , bytestring
     , mongoDB
     , mtl
+    , network-uri
     , scientific
     , string-conversions
     , text
